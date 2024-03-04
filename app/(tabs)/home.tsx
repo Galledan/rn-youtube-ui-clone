@@ -1,15 +1,22 @@
 import { View, Text } from 'react-native'
 import React from 'react'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import TopBar from '@/components/TopBar'
+import FilterBar from '@/components/FilterBar'
 
 
 // rnfe equivalent of rfce
 
-const index = () => {
+const home = () => {
   return (
-    <View>
-      <Text>Youtube</Text>
-    </View>
+    <SafeAreaView>
+      <View>
+        <TopBar />
+
+        <FilterBar />
+      </View>
+    </SafeAreaView>
   )
 }
 
-export default index
+export default home
