@@ -3,6 +3,7 @@ import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import TopBar from '@/components/TopBar'
 import FilterBar from '@/components/FilterBar'
+import ShortsArea from '@/components/ShortsArea'
 
 
 // rnfe equivalent of rfce
@@ -14,6 +15,9 @@ const home = () => {
         <TopBar />
 
         <FilterBar />
+
+        <ShortsArea />
+
       </View>
     </SafeAreaView>
   )

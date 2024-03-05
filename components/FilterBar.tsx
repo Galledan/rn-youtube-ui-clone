@@ -1,40 +1,53 @@
-import { View, Text, ScrollView } from 'react-native'
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons';
-import React from 'react'
+import React, { useState } from 'react';
 
 const FilterBar = () => {
 
-    const categories: string[] = ['Category 1', 'Category 2', 'Category 3','Category 1', 'Category 2', 'Category 3','Category 1', 'Category 2', 'Category 3',];
+    const [selectedCategory, setSelectedCategory] = useState<number | null>(0);
+
+    const handleCategoryClick = (index: number) => {
+        setSelectedCategory(index);
+    };
+
+    const categories: string[] = ['All', 'New', 'Games','Sitcom', 'Live', 'Sci-Fi'];
 
     return (
         <ScrollView horizontal={true} style={{
-            height: 80,
+            height: 50,
         }}>
-              <View style={{
+              <TouchableOpacity  style={{
                     height: 40,
-                    backgroundColor: 'black',
+                    backgroundColor: 'gray',
                     borderRadius: 5,
                     alignItems: 'center',
                     padding: 10,
-                    marginHorizontal: 8 // Add margin between each category
+                    marginHorizontal: 8 
                 }}>
-                   <FontAwesome5 name="compass" size={18} color="white" />
-                </View>
-            {categories.map((category, index) => (
-                <View key={index} style={{
-                    height: 40,
-                    backgroundColor: 'black',
-                    borderRadius: 5,
-                    alignItems: 'center',
-                    padding: 12,
-                    marginHorizontal: 8 // Add margin between each category
-                }}>
+                   <FontAwesome5 name="compass" size={18} color="black" />
+                </TouchableOpacity>
+                {categories.map((category, index) => (
+                <TouchableOpacity 
+                    key={index} 
+                    style={{
+                        height: 40,
+                        backgroundColor: selectedCategory === index ? 'black' : 'gray',
+                        borderRadius: 10,
+                        alignItems: 'center',
+                        padding: 12,
+                        marginHorizontal: 8 
+                    }}
+                    onPress={() => handleCategoryClick(index)}
+                >
                     <Text style={{
                         fontSize: 12,
-                        color: 'white',
+                        color: selectedCategory === index ? 'white' : 'black',
                         fontWeight: 'bold'
-                    }}>{category}</Text>
-                </View>
+                    }}
+                    >
+                        {category}
+                    </Text>
+                </TouchableOpacity>
             ))}
 
         </ScrollView>
