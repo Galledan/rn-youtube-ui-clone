@@ -31,7 +31,7 @@ const ShortsArea: React.FC = () => {
                 alignItems:'center',
                 paddingHorizontal: 8,
                 flexWrap: 'wrap',
-                height:700,
+                height:630,
                 gap: 10
             }}>
             {shortsData.map((short, index) => (

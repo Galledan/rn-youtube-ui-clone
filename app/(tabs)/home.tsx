@@ -1,9 +1,10 @@
-import { View, Text } from 'react-native'
+import { ScrollView } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import TopBar from '@/components/TopBar'
 import FilterBar from '@/components/FilterBar'
 import ShortsArea from '@/components/ShortsArea'
+import VideoArea from '@/components/VideoArea'
 
 
 // rnfe equivalent of rfce
@@ -11,14 +12,14 @@ import ShortsArea from '@/components/ShortsArea'
 const home = () => {
   return (
     <SafeAreaView>
-      <View>
+      <ScrollView>
         <TopBar />
 
         <FilterBar />
 
         <ShortsArea />
-
-      </View>
+        <VideoArea />
+      </ScrollView>
     </SafeAreaView>
   )
 }
